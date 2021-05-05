@@ -23,6 +23,18 @@ A web application where each user can manage their own birthday's dates.
 
 ## :camera: Demonstration:
 
+### Desktop view
+
+![register](https://github.com/galobponce/birthday-manager/blob/main/static/images/register.desktop.png)
+
+![menu](https://github.com/galobponce/birthday-manager/blob/main/static/images/menu-dekstop.png)
+
+### Mobile View
+
+![homepage](https://github.com/galobponce/birthday-manager/blob/main/static/images/homepage-mobile.png)
+
+![search](https://github.com/galobponce/birthday-manager/blob/main/static/images/search-mobile.png)
+
 ## :computer: Deployment on localhost:
 
   ### First Step:
@@ -49,4 +61,4 @@ A web application where each user can manage their own birthday's dates.
   
   ## Fourth Step:
   
-  Execute `flask run` on project's directory with your terminal.
+  Execute `FLASK_ENV=development` to see possible errors, and then `flask run` on project's directory with your terminal to run app on localhost.
