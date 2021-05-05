@@ -1,0 +1,59 @@
+{% extends "layout.html" %} {% block title %} Menu {% endblock %} 
+{% block main %}
+<form class="bg-dark p-3" action="/add" method="POST">
+  <h1 class="display-5">Add a birthday</h1>
+  <div class="form-group">
+    <label for="person-name">Person's name</label>
+    <input type="text" autocomplete="off" minlength="1" maxlength="20" class="form-control" placeholder="Enter Name" name="name" id="person-name" required>
+  </div>
+  <div class="form-group">
+    <label for="person-month">Birthday's Month</label>
+    <input type="number" autocomplete="off" min="1" max="12" class="form-control" placeholder="Enter Month" name="month" id="person-month" inputmode="tel" required>
+  </div>
+  <div class="form-group">
+    <label for="person-day">Birthday's Day</label>
+    <input type="number" autocomplete="off" min="1" max="31" class="form-control" placeholder="Enter Day" name="day" id="person-day" inputmode="tel" required>
+  </div>
+  <div class="form-group text-center">
+    <input value="Submit" class="btn btn-primary btn-lg rounded-lg" type="submit">
+  </div>
+</form>
+
+<div class="jumbotron mt-3 mb-3">
+  <h1 class="display-5">Search for anybody by name</h1>
+  <input type="text" autocomplete="off" class="form-control" placeholder="Type name here" name="filter">
+  <hr class="my-4"/>
+  <ul class="list-group list-group-flush"></ul>
+</div>
+
+<div class="jumbotron">
+  <h1 class="display-5">All Birthdays</h1>
+  <hr class="my-4">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2">Name</th>
+          <th scope="col">Birthday</th>
+          <th scope="col">X</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr data-row="{{ row }}">
+            <td colspan="2">{{ row.name }}</td>
+            <td colspan="1">{{ row.month }}/{{ row.day }}</td>
+            <td colspan="1">
+              <form action="/delete" method="POST">
+                <input name="id" value="{{ row.birthday_id }}" type="hidden">
+                <input class="btn btn-danger" type="submit" value="X">
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<script src="../static/search.js"></script>
+{% endblock %}
